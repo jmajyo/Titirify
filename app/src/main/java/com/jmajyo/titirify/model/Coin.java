@@ -1,6 +1,8 @@
 package com.jmajyo.titirify.model;
 
-public class Coin {
+import io.realm.RealmObject;
+
+public class Coin extends RealmObject{
     private float value;
     private int image;
 

@@ -11,11 +11,11 @@
     >
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="75dp"
+        android:layout_height="100dp"
         android:orientation="horizontal"
         tools:context="com.jmajyo.titirify.FluteDogActivity"
         android:background="#111111"
-        android:layout_weight="0.8"
+        android:layout_weight="1"
 
         >
         <TextView
@@ -42,7 +42,7 @@
     <GridLayout
         android:id="@+id/activity_flute_dog"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:columnCount="2"
         tools:context="com.jmajyo.titirify.FluteDogActivity"
         android:layout_weight="5"
@@ -151,7 +151,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:layout_weight="0.7">
+        android:layout_weight="1">
         <Button
             android:id="@+id/activity_flute_dog___hat_button"
             android:layout_width="200dp"
@@ -162,6 +162,6 @@
             android:background="#111111"
             android:textColor="#FFFF00"
             android:textAllCaps="false"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginBottom="20dp"/>
     </RelativeLayout>
 </LinearLayout>

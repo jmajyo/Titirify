@@ -11,6 +11,8 @@ import android.widget.TextView;
 import com.jmajyo.titirify.model.Coins;
 import com.jmajyo.titirify.model.Hat;
 
+import java.util.Date;
+
 public class FluteDogActivity extends AppCompatActivity {
 
     private ImageView dosEuroButton;
@@ -115,13 +117,30 @@ public class FluteDogActivity extends AppCompatActivity {
         hatButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                refresh();
-
+                saveHat();
+                resetHat();
             }
         });
     }
 
-    private void refresh() {
+    private void saveHat() {
+        gorra.setDate(new Date());
+        //TODO: REALM y esas cosas
+    }
+
+    private void resetHat() {
+        gorra = new Hat();
+        refresh();
+
+        dosEuroText.setText("" + gorra.getTwoEuroCounter());
+        unEuroText.setText("" + gorra.getOneEuroCounter());
+        cincuentaCentText.setText("" + gorra.getFiftyCentCounter());
+        veinteCentText.setText("" + gorra.getTwentyCentCounter());
+        diezCentText.setText("" + gorra.getTenCentCounter());
+        cincoCentText.setText("" + gorra.getFiveCentCounter());
+    }
+
+        private void refresh() {
         String formatDigit = String.format("%.2f €",gorra.getTotalValue());
         totalMoneyAmount.setText(formatDigit);
     }

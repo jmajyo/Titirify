@@ -6,7 +6,9 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Hat {
+import io.realm.RealmObject;
+
+public class Hat extends RealmObject {
     private Date date;
     private List<Coin> coins = new LinkedList<>();
 
