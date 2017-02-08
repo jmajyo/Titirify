@@ -1,8 +1,11 @@
 package com.jmajyo.titirify.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -129,8 +132,29 @@ public class FluteDogActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.menu_main___action_statistics) {
+
+            Intent i = new Intent(FluteDogActivity.this, ProfitActivity.class);
+            startActivityForResult(i, 1);
+
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     private void saveHat() {
         gorra.setDate(new Date());
+        gorra.setTotal(gorra.getTotalValue());
 
         Realm realm = Realm.getDefaultInstance();
 
