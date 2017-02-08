@@ -1,19 +1,23 @@
-package com.jmajyo.titirify;
+package com.jmajyo.titirify.activities;
 
-import android.content.Context;
 import android.os.Bundle;
-import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.jmajyo.titirify.R;
 import com.jmajyo.titirify.model.Coins;
 import com.jmajyo.titirify.model.Hat;
+import com.jmajyo.titirify.util.Temblator;
 
 import java.util.Date;
+
+import io.realm.Realm;
+import io.realm.RealmResults;
 
 public class FluteDogActivity extends AppCompatActivity {
 
@@ -127,7 +131,18 @@ public class FluteDogActivity extends AppCompatActivity {
 
     private void saveHat() {
         gorra.setDate(new Date());
-        //TODO: REALM y esas cosas
+
+        Realm realm = Realm.getDefaultInstance();
+
+        realm.beginTransaction();
+        realm.copyToRealm(gorra);
+        realm.commitTransaction();
+
+        //listar todos los hats de la tabla de HATS
+        RealmResults<Hat> hats = realm.where(Hat.class).findAll();
+        for (Hat h:hats ) {
+            Log.d("REALM","Date: " + h.getDate() + " - monedas 2 € " + h.getTwoEuroCounter());
+        }
 
     }
 
@@ -146,10 +161,6 @@ public class FluteDogActivity extends AppCompatActivity {
         private void refresh() {
         String formatDigit = String.format("%.2f €",gorra.getTotalValue());
         totalMoneyAmount.setText(formatDigit);
-        // Get instance of Vibrator from current Context
-        Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-
-        // Vibrate for 400 milliseconds
-        v.vibrate(400);
+        Temblator.tremble(this,200);
     }
 }

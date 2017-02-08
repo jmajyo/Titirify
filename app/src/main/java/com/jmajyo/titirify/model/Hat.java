@@ -3,13 +3,15 @@ package com.jmajyo.titirify.model;
 import android.support.annotation.NonNull;
 
 import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
 
-import io.realm.RealmList;
 import io.realm.RealmObject;
+import io.realm.annotations.Ignore;
 
 public class Hat extends RealmObject {
     private Date date;
-    private RealmList<Coin> coins = new RealmList<>();
+    @Ignore private List<Coin> coins = new LinkedList<>(); //Esta lista no se va a grabar en la base de datos al decirle ignore
 
     private int twoEuroCounter;
     private int oneEuroCounter;
@@ -17,6 +19,10 @@ public class Hat extends RealmObject {
     private int twentyCentCounter;
     private int tenCentCounter;
     private int fiveCentCounter;
+
+    public Hat() {
+        //Realm required
+    }
 
     public void addCoin(@NonNull Coin coin){
         if(coin == null){
