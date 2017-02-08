@@ -19,6 +19,7 @@ public class Hat extends RealmObject {
     private int twentyCentCounter;
     private int tenCentCounter;
     private int fiveCentCounter;
+    private float total;
 
     public Hat() {
         //Realm required
@@ -93,5 +94,13 @@ public class Hat extends RealmObject {
 
     public void setFiveCentCounter(int fiveCentCounter) {
         this.fiveCentCounter = fiveCentCounter;
+    }
+
+    public float getTotal() {
+        return total;
+    }
+
+    public void setTotal(float total) {
+        this.total = total;
     }
 }
