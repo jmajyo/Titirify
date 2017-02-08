@@ -3,14 +3,13 @@ package com.jmajyo.titirify.model;
 import android.support.annotation.NonNull;
 
 import java.util.Date;
-import java.util.LinkedList;
-import java.util.List;
 
+import io.realm.RealmList;
 import io.realm.RealmObject;
 
 public class Hat extends RealmObject {
     private Date date;
-    private List<Coin> coins = new LinkedList<>();
+    private RealmList<Coin> coins = new RealmList<>();
 
     private int twoEuroCounter;
     private int oneEuroCounter;

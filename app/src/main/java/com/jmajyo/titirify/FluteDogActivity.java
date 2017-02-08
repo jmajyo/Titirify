@@ -1,6 +1,8 @@
 package com.jmajyo.titirify;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
@@ -126,6 +128,7 @@ public class FluteDogActivity extends AppCompatActivity {
     private void saveHat() {
         gorra.setDate(new Date());
         //TODO: REALM y esas cosas
+
     }
 
     private void resetHat() {
@@ -143,5 +146,10 @@ public class FluteDogActivity extends AppCompatActivity {
         private void refresh() {
         String formatDigit = String.format("%.2f €",gorra.getTotalValue());
         totalMoneyAmount.setText(formatDigit);
+        // Get instance of Vibrator from current Context
+        Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+
+        // Vibrate for 400 milliseconds
+        v.vibrate(400);
     }
 }
