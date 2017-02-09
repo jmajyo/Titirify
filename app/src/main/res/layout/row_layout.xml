@@ -128,8 +128,6 @@
     <Button
         android:id="@+id/activity_profit___hideShow_button"
         android:layout_width="match_parent"
-        android:layout_marginLeft="2dp"
-        android:layout_marginRight="2dp"
         android:layout_height="30dp"
         android:background="#222222"
         android:textColor="#ffff00"
